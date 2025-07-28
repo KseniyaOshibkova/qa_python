@@ -37,15 +37,17 @@ class TestBooksCollector:
         collector = BooksCollector()
         assert 'Фантастика' in collector.genre
 
-    @pytest.mark.parametrize('name,genre', [['Оно', 'Ужасы'], ['Дорога', 'Драма']])
-    def test_set_book_genre_set_valid_and_invalid_genre(self, name, genre):
+    def test_set_book_genre_set_valid_genre(self):
         collector = BooksCollector()
-        collector.add_new_book(name)
-        collector.set_book_genre(name, genre)
-        if genre in collector.genre:
-            assert collector.get_book_genre('Оно') == 'Ужасы'
-        else:
-            assert collector.get_book_genre('Дорога') == ''
+        collector.add_new_book('Оно')
+        collector.set_book_genre('Оно', 'Ужасы')
+        assert collector.get_book_genre('Оно') == 'Ужасы'
+
+    def test_set_book_genre_set_invalid_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дорога')
+        collector.set_book_genre('Дорога', 'Драма')
+        assert collector.get_book_genre('Дорога') == ''
 
     def test_get_book_genre_get_genre_new_book(self):
         collector = BooksCollector()
@@ -129,3 +131,9 @@ class TestBooksCollector:
         long_name = 'Вечное сияние чистого разума и много много много другого'
         collector.add_new_book(long_name)
         assert long_name not in collector.get_books_genre()
+
+    def test_get_books_genre(self):
+        collector = BooksCollector()
+        name = 'Мастер и Маргаритта'
+        collector.add_new_book(name)
+        assert name in collector.get_books_genre()

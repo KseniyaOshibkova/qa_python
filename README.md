@@ -1,6 +1,7 @@
 # qa_python
 # test_default_value_in_genre проверяет __init__ класса, а именно наличие конкретного значение в переменной типа список.
-# test_set_book_genre_set_valid_and_invalid_genre проверяет установку значения существующего и не суествующего жанра в списке genre для новосозданной книги.
+# test_set_book_genre_set_valid_genre проверяет установку значения существующего жанра в списке genre для новосозданной книги.
+# test_set_book_genre_set_invalid_genre проверяет установку значения не суествующего жанра в списке genre для новосозданной книги.
 # test_get_book_genre_get_genre_new_book проверяет что при запросе книги по имени выводится соответствующий ей жанр.
 # test_get_books_with_specific_genre_parametrized проверяет принадлежность списка книг запрашиваемому жанру. 
 # test_no_age_restricted_books_in_children_list проверяет, что в список детских книг не попали запрещенные жанры.
